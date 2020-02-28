@@ -38,8 +38,13 @@ var mainGameLoop = window.setInterval(function() {
   gameData.gold += gameData.goldPerClick * (diff / 1000);
   update("goldMined", format(gameData.gold, "sci") + " Gold Mined");
 }, 1000);
+
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem("goldMinerSave", JSON.stringify(gameData));
+if (typeof saveGame.gold !== "undefined") gameData.gold = saveGame.gold;
+if (typeof saveGame.goldPerClick !== "undefined") gameData.goldPerClick = saveGame.goldPerClick;
+if (typeof saveGame.goldPerClickCost !== "undefined") gameData.goldPerClickCost = saveGame.goldPerClickCost;
+if (typeof saveGame.lastTick !== "undefined") gameData.lastTick = saveGame.lastTick;
 }, 15000);
 
 function tab(tab) {
@@ -63,11 +68,3 @@ function format(number, type) {
       Math.floor(exponent / 3) * 3
     );
 }
-
-if (typeof saveGame.gold !== "undefined") gameData.gold = saveGame.gold;
-if (typeof saveGame.goldPerClick !== "undefined")
-  gameData.goldPerClick = saveGame.goldPerClick;
-if (typeof saveGame.goldPerClickCost !== "undefined")
-  gameData.goldPerClickCost = saveGame.goldPerClickCost;
-if (typeof saveGame.lastTick !== "undefined")
-  gameData.lastTick = saveGame.lastTick;
