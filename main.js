@@ -41,10 +41,10 @@ var mainGameLoop = window.setInterval(function() {
 
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem("goldMinerSave", JSON.stringify(gameData));
-if (typeof saveGame.gold !== "undefined") gameData.gold = saveGame.gold;
-if (typeof saveGame.goldPerClick !== "undefined") gameData.goldPerClick = saveGame.goldPerClick;
-if (typeof saveGame.goldPerClickCost !== "undefined") gameData.goldPerClickCost = saveGame.goldPerClickCost;
-if (typeof saveGame.lastTick !== "undefined") gameData.lastTick = saveGame.lastTick;
+  if (typeof saveGame.gold !== "undefined") gameData.gold = saveGame.gold;
+  if (typeof saveGame.goldPerClick !== "undefined") gameData.goldPerClick = saveGame.goldPerClick;
+  if (typeof saveGame.goldPerClickCost !== "undefined") gameData.goldPerClickCost = saveGame.goldPerClickCost;
+  if (typeof saveGame.lastTick !== "undefined") gameData.lastTick = saveGame.lastTick;
 }, 15000);
 
 function tab(tab) {
@@ -53,7 +53,7 @@ function tab(tab) {
   document.getElementById("shopMenu").style.display = "none"
   document.getElementById(tab).style.display = "inline-block"
 }
-// go to a tab for the first time, so not all show
+
 tab("mineGoldMenu")
 
 function format(number, type) {
